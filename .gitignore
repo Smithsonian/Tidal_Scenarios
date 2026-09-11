@@ -1,0 +1,10 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+data/ar6-regional-confidence/regional/*
+output/figs/year_prediction_plots/*
+output/tabs/classified_hl/*
+output/tabs/datums/*
+output/tabs/nodal_parameters/*
+output/tabs/raw_wl/*

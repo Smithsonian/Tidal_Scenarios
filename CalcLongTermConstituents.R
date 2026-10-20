@@ -3,6 +3,7 @@
 library(tidyverse)
 library(VulnToolkit)
 library(zoo)
+library(arrow)
 
 npsset_data <- read_csv("https://raw.githubusercontent.com/laura-feher/NPSETr/refs/heads/master/data/future_slr_projections_sweet_2022.csv") %>% 
   select(`PSMSL ID`, `NOAA ID`, `NOAA Name`) %>% 
@@ -278,6 +279,7 @@ for (i in 1:length(output_files)) {
 output_tab <- bind_rows(output_list)
 
 write_csv(output_tab, "data/long_term_tidal_constituents.csv")
+write_parquet(output_tab, "data/long_term_tidal_constituents.parquet")
 
 
 output_files <- list.files("output/tabs/datums/",
@@ -291,4 +293,5 @@ for (i in 1:length(output_files)) {
 output_tab <- bind_rows(output_list)
 
 write_csv(output_tab, "data/annual_compiled_datums.csv")
+write_parquet(output_tab, "data/annual_compiled_datums.parquet")
 
